@@ -1,0 +1,17 @@
+function User_Information($user_Id,$field)
+	{
+		global $conn;
+		$sql = "Select * from user_infromation where user_Id = '$user_Id'";
+		if($reslut = mysqli_query($conn,$sql))
+		{
+			if(mysqli_num_rows($result) > 0)
+			{
+				$rows = mysqli_fetch_assoc($result);
+				return $rows[$field];
+			}
+			else
+				return"";
+		}
+		else
+			return "";
+	}	
